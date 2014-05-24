@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="cloudSpider" lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/dashboard.css" rel="stylesheet">
+	<title>CloudSpider - 云爬虫，云采集系统</title>
+
+	<script src="/static/libs/angular.min.js"></script>
+	<script type="text/javascript" src="/static/libs/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="/static/libs/ui-bootstrap-tpls-0.10.0.min.js"></script>
+
+	<script type="text/javascript" src="/static/dashboard/app.js"></script>
+
+	<script>
+		var CloudSpider = CloudSpider || {};
+		CloudSpider.page = CloudSpider.page || {};
+		CloudSpider.app = CloudSpider.app || {};
+		CloudSpider.app.domain = 'www.cloudspider.net';
+		CloudSpider.app.path = '/dashboard';
+		CloudSpider.app._version = '0.0.1';
+		CloudSpider.user == {};
+	</script>
+</head>
+<!--[if lt IE 9]>
+<body>
+	<div class="noie">
+		您现在使用的是旧版本的IE浏览器，为了您能更好及完整体验CloudSpider平台所有功能，请尽快升级您的浏览器至最新版IE，或者使用 <a href="https://www.google.com/intl/zh-CN/chrome/browser/" target="_blank">Chrome</a>，<a href="http://www.firefox.com.cn/" target="_blank">Firefox</a>， <a href="http://www.apple.com/safari/" target="_blank">Safari</a> 等更加符合标准的浏览器！    
+	</div>
+</body>
+<![endif]-->
+<body>
+	<div class="cloudspider-container clearfix" ui-view></div>
+	<div growl></div>
+</body>
+</html>

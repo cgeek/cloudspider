@@ -1,0 +1,48 @@
+<div class="header" up-fix-offset-top="">
+	<a href="#/dashboard/" class="brand"></a>
+	<ol class="breadcrumb">
+		<li ng-class="{'active': isDashboard == true}"><a href="#/dashboard/">主页</a></li>
+		<li ng-show="isBucket == true" ng-class="{'active': isBucketDetail == true}">
+			<a ng-href="#/buckets/{{bucketName}}/detail/">{{bucketName}}</a>
+		</li>
+		<li class="active" ng-repeat-start="breadcrumb in breadcrumbs" ng-repeat-end="">{{breadcrumbZH[breadcrumb]}}</li>
+	</ol>
+	
+	<ul class="pull-right list-inline list-helper">
+		<li><a href="mailto:cgeek@qq.com">提交意见 &amp; 吐槽</a></li>
+	</ul>
+</div>
+<div class="control-panel fixed" ng-controller="controlPanelCtrl" ng-cloak="">
+	<div ng-hide="showBucketsList">
+		<div class="main-nav">
+			<div class="accordion-group ng-isolate-scope ng-scope" ng-class="{ 'opened': isOpen.account }">
+				<div class="accordion-heading">
+					<div class="accordion-toggle ng-binding" ng-click="toggleOpen('account')">
+						<p ng-class="{ active: $state.includes('account') }"><i class="upicon upicon-account"></i> <span>询单管理</span></p>
+						<i class="upicon upicon-arrow-ud-sm"></i>
+					</div>
+				</div>
+				<div class="accordion-body collapse" collapse="!isOpen.account" style="height: auto">
+					<div class="accordion-inner">
+						<ul class="list-unstyled ng-scope">
+							<li ng-class="{ active: $state.includes('account.profile') }"><a href="#/account/profile/">基本信息管理</a></li>
+							<li ng-class="{ active: $state.includes('account.operators') }"><a href="#/account/operators/">操作员管理</a></li>
+							<li ng-class="{ active: $state.includes('account.log') }"><a href="#/account/log/">操作日志</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="login-info" up-fix-offset-top="">
+		<div class="login-user pull-left">{{user.username}}</div>
+		<div class="login-ctrl pull-right">
+			<ul class="list-inline">
+				<li><a class="text-value" href="#/account/profile/" class="pull-right"><i class="upicon upicon-config"></i></a></li>
+				<li><a class="text-value" class="pull-right" href="/partners/account/signout/" title="退出"><i class="upicon upicon-log-out"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper" ui-view="page"></div>

@@ -1,0 +1,45 @@
+<div class="content content-dashboard clearfix">
+	<div class="main" role="main">
+		<div class="inquiry_list">
+			<div class="inquiry_table_hd">
+				<div class="buckets-helper clearfix">
+					<a class="btn-create-bucket pull-right" style="margin-bottom:10px;" ng-click="createBucket()">添加询单</a>
+				</div>
+			</div>
+			<table class="table table-buckets-details table-bordered">
+				<thead>
+					<tr style="background:#F9F9F9; color:#677180;">
+						<th style="width:40px;">ID</th>
+						<th style="width:100px;">询单时间</th>
+						<th style="width:500px;">询单内容</th>
+						<th class="text-center" style="width:100px;">是否有房</th>
+						<th class="text-center">备注</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="inquiry in inquirys" ng-class="{has_response : inquiry.available != null, unread: inquiry.unread == 1}">
+						<td>
+							{{inquiry.id}}
+						</td>
+						<td>
+							{{inquiry.ctime}}
+						</td>
+						<td class="editable">
+							{{inquiry.content}}
+						</td>
+						<td class="text-center">
+							<i class="upicon upicon-true" ng-click="updateAvailable( inquiry.available == null ? 1 : !inquiry.available, inquiry, $index)" ng-hide="inquiry.available == 0"></i>
+							<i class="upicon upicon-false" ng-click="updateAvailable(inquiry.available == null ? 0 : !inquiry.available, inquiry, $index)" ng-hide="inquiry.available == 1"></i>
+						</td>
+						<td class="text-center remark">
+							<a href="#" editable-text="inquiry.remark" onbeforesave="updateRemark($data, inquiry.id)">{{ inquiry.remark || "添加" }}</a>
+						</td>
+					</tr>
+					<tr ng-show="!inquirys">
+						<td colspan="6">暂时没有进行中的询单...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<form class="form-login" name="auth_form" ng-submit="auth()" ng-controller="authCtrl">
+	<h2>
+		<a href="/" title="合作伙伴">合作伙伴登录</a>
+	</h2>
+	<div class="form-group">
+		<input type="text" ng-model="username" name="username" id="username" class="form-control" placeholder="用户名" tabindex="1" required="">
+		<i class="login-username"></i>
+	</div>
+	<div class="form-group">
+		<input type="password" ng-model="password" name="password" id="password" class="form-control" placeholder="密码" tabindex="2" required="">
+		<i class="login-password"></i>
+	</div>
+	<div class="tooltip bottom in fade" ng-show="showErrorTip"><div class="tooltip-arrow"></div>
+		<div class="tooltip-inner">{{error_tip}}</div>
+	</div>
+	<input class="btn btn-normal btn-login" type="submit" id="loginBtn" tabindex="4" value="登录">
+	<p class="lost-pw">
+		<!--a href="#/lostpass/">忘记密码?</a-->
+	</p>
+	<hr class="login-hr">
+	<p class="reg">没有帐号？<a href="#/register/">马上注册，免费试用</a></p>
+</form>
