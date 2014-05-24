@@ -12,7 +12,8 @@ import logging
 from lib.core.data import paths
 from lib.core.common import banner
 from lib.core.common import setPaths 
-
+from lib.webserver.server import initServer 
+ 
 def modulePath():
     try:
         _ = sys.executable if weAreFrozen() else __file__
@@ -28,7 +29,7 @@ def main():
     paths.ROOT_PATH = modulePath()
     setPaths()
     banner()
-    
+    initServer()
 
 if __name__ == '__main__':
 	main()
